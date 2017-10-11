@@ -22,7 +22,7 @@ RUN apk --no-cache add git python libsodium wget tar && \
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x *.sh && mkdir kcptun && mv *_linux_amd64 /kcptun
-ADD *-config.json /kcptun
+ADD *-config.json /kcptun/
 
 EXPOSE $PORT $listen_port
 CMD /entrypoint.sh
