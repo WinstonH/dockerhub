@@ -1,6 +1,6 @@
 {
-    "listen": ":${listen_port}",
-    "target": "${remote_server}:{remote_port}",
+    "localaddr": ":listen_port",
+    "remoteaddr": "remote_server:remote_port",
     "key": "thisiskcptun",
     "crypt": "none",
     "mode": "fast2",
