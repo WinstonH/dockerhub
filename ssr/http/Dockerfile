@@ -18,7 +18,7 @@ RUN apk --no-cache add git python libsodium wget tar nginx bash && \
     git clone -b manyuser https://github.com/shadowsocksr-rm/shadowsocksr.git && \
     wget https://github.com/xtaci/kcptun/releases/download/v${VERSION}/kcptun-linux-amd64-${VERSION}.tar.gz -O kcptun.tar.gz && \
     tar -xzvf kcptun.tar.gz && rm kcptun.tar.gz && \
-    mkdir /run/nginx && mkdir /var/www/digitalworld \
+    mkdir /run/nginx && mkdir /var/www/digitalworld && \
     apk del --purge git wget tar
 
 # setup website
