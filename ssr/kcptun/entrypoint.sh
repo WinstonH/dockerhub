@@ -5,4 +5,4 @@ python /shadowsocksr/shadowsocks/server.py -p $PORT -k $PASSWD -m $METHOD -O $PR
 sed -i "s/listen_port/${listen_port}/g" /kcptun/${MODE}-config.json
 sed -i "s/remote_server:remote_port/${remote_server}:${remote_port}/g" /kcptun/${MODE}-config.json
 # launch kcptun server or client
-/kcptun/${MODE}_linux_amd64 -c /kcptun/${MODE}-config.json 2>&1 &
+/kcptun/${MODE}_linux_amd64 -c /kcptun/${MODE}-config.json
