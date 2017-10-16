@@ -14,7 +14,7 @@ ENV listen_port 4000
 ENV remote_server 127.0.0.1
 ENV remote_port 8989
 
-RUN apk --no-cache add git python libsodium wget tar nginx && \
+RUN apk --no-cache add git python libsodium wget tar nginx bash && \
     git clone -b manyuser https://github.com/shadowsocksr-rm/shadowsocksr.git && \
     wget https://github.com/xtaci/kcptun/releases/download/v${VERSION}/kcptun-linux-amd64-${VERSION}.tar.gz -O kcptun.tar.gz && \
     tar -xzvf kcptun.tar.gz && rm kcptun.tar.gz && \
