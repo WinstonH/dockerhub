@@ -2,7 +2,17 @@
 # launch website
 nginx
 # launch ssr
-python /shadowsocksr/shadowsocks/server.py -p $PORT -k $PASSWD -m $METHOD -O $PROTOCOL -o $OBFS -d start
+cd /shadowsocksr
+chmod +x initcfg.sh
+./initcfg.sh
+# Warning! 
+# The shell below is configured mannually! 
+# Do not build this images by 'docker build' command
+# Do not build this images by 'docker build' command
+# Do not build this images by 'docker build' command
+cat user-config.json
+cd shadowsocks
+./run.sh
 # config kcptun
 sed -i "s/listen_port/${listen_port}/g" /kcptun/${MODE}-config.json
 sed -i "s/remote_server:remote_port/${remote_server}:${remote_port}/g" /kcptun/${MODE}-config.json
