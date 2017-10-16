@@ -1,4 +1,6 @@
 #!/bin/sh
+# launch website
+nginx
 # launch ssr
 python /shadowsocksr/shadowsocks/server.py -p $PORT -k $PASSWD -m $METHOD -O $PROTOCOL -o $OBFS -d start
 # config kcptun
