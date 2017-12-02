@@ -9,7 +9,9 @@ sudo sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/ss
 && sudo sed -i "s/#X11Forwarding no/X11Forwarding yes/g" /etc/ssh/sshd_config \
 && sudo sed -i "s/#PermitUserEnvironment no/PermitUserEnvironment yes/g" /etc/ssh/sshd_config \
 && sudo echo "ForwardX11Trusted yes" >> /etc/ssh/ssh_config
-
+# generate host keys if not present
+sudo ssh-keygen -A
+sudo chmod +r /etc/ssh/ssh_host*
 #prepare xauth
 sudo touch /root/.Xauthority
 
