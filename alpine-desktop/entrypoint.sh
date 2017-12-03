@@ -11,7 +11,6 @@ sudo sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/ss
 && sudo echo "ForwardX11Trusted yes" >> /etc/ssh/ssh_config
 # generate host keys if not present
 sudo ssh-keygen -A
-sudo chmod +r /etc/ssh/ssh_host*
 #prepare xauth
 sudo touch /root/.Xauthority
 
