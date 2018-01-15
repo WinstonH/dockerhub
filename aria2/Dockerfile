@@ -1,5 +1,5 @@
 FROM alpine:latest
-ENV VERSION 0.2.0
+ENV VERSION 0.3.0
 RUN apk --update --no-cache add aria2 nginx libc6-compat ca-certificates wget openssl unzip && \
     update-ca-certificates && \
     wget https://github.com/mayswind/AriaNg/releases/download/${VERSION}/aria-ng-${VERSION}.zip -O ariang.zip && \
