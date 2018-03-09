@@ -5,7 +5,7 @@ ENV TZ 'Asia/Shanghai'
 RUN apk upgrade --no-cache \
     && apk add --no-cache bash tzdata \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && echo "Asia/Shanghai" > /etc/timezone \
+    && echo '${TZ}' > /etc/timezone \
     && rm -rf /var/cache/apk/*
 # 导入edge最新源
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
