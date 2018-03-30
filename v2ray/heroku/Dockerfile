@@ -10,7 +10,7 @@ COPY config.json /etc/v2ray/config.json
 COPY entrypoint.sh /usr/bin/
 
 RUN set -ex && \
-    apk --no-cache add ca-certificates nginx && \
+    apk --no-cache add ca-certificates nginx util-linux && \
     mkdir /var/log/v2ray/ && \
     chmod +x /usr/bin/v2ray/v2ctl && \
     chmod +x /usr/bin/v2ray/v2ray
