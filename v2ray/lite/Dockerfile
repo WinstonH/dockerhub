@@ -1,5 +1,5 @@
 FROM alpine:latest
-ENV UUID bae4c69e-3fe3-45d4-aaae-43dc34855efc
+ENV UUID=""
 ENV PORT 8001
 
 ADD https://storage.googleapis.com/v2ray-docker/v2ray /usr/bin/v2ray/
