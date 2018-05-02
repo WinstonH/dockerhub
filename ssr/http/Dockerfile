@@ -26,7 +26,7 @@ COPY index.html /var/www/digitalworld/index.html
 COPY default.conf /etc/nginx/conf.d/default.conf
 
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x *.sh && mkdir kcptun && mv *_linux_amd64 /kcptun
+RUN mkdir kcptun && mv *_linux_amd64 /kcptun
 ADD *-config.json /kcptun/
 
 EXPOSE $PORT $listen_port
