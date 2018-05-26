@@ -8,7 +8,7 @@ ENV OBFS tls1.2_ticket_auth
 ENV DNS_ADDR 8.8.8.8
 ENV DNS_ADDR_2 8.8.4.4
 # kcptun config
-ENV VERSION 20170930
+ENV VERSION 20180316
 ENV MODE server
 ENV listen_port 4000
 ENV remote_server 127.0.0.1
