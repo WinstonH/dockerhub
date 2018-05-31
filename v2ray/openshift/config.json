@@ -16,12 +16,12 @@
         }
       ]
     },
-	"streamSettings": {
-	"network": "ws",
-    "wsSettings": {
-        "path": "/ray"
-      }
-	}
+        "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/ray"
+		  }
+        }
   },
   "outbound": {
     "protocol": "freedom",

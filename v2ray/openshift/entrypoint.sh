@@ -9,6 +9,9 @@ else
     echo "You didn't set an UUID"
     echo "The auto-generated UUID is: $UUID"
 fi
-
-sed -i "s/PORT/$PORT/g" /etc/nginx/conf.d/default.conf
+VERSION=$(v2ray --version |grep v |awk '{print $2}')
+BUILDDATE=$(v2ray --version |grep v |awk '{print $5}')
+sed -i "s/VERSION/$VERSION/g" /var/lib/nginx/html/index.html
+sed -i "s/BUILDDATE/$BUILDDATE/g" /var/lib/nginx/html/index.html
+nginx
 v2ray -config=/etc/v2ray/config.json
