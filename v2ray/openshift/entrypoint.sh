@@ -11,7 +11,9 @@ else
 fi
 VERSION=$(v2ray --version |grep v |awk '{print $2}')
 BUILDDATE=$(v2ray --version |grep v |awk '{print $5}')
+REBOOTDATE=$(date)
 sed -i "s/VERSION/$VERSION/g" /var/lib/nginx/html/index.html
 sed -i "s/BUILDDATE/$BUILDDATE/g" /var/lib/nginx/html/index.html
+sed -i "s/REBOOTDATE/$REBOOTDATE/g" /var/lib/nginx/html/index.html
 nginx
 v2ray -config=/etc/v2ray/config.json
