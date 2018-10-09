@@ -6,7 +6,7 @@ COPY config.json /etc/v2ray/config.json
 COPY entrypoint.sh /usr/bin/
 
 RUN set -ex \
-&& apk --no-cache add curl wget unzip ca-certificates \
+&& apk --no-cache add curl wget unzip nginx ca-certificates \
 && mkdir /var/log/v2ray/  \
 && mkdir /run/nginx \
 && VER=$(curl -s https://api.github.com/repos/v2ray/v2ray-core/releases/latest | grep tag_name | awk  -F '"' '{print $4}') \
