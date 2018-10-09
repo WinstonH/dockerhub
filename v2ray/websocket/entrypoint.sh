@@ -11,4 +11,5 @@ else
 fi
 
 sed -i "s/PORT/$PORT/g" /etc/nginx/conf.d/default.conf
+nginx
 v2ray -config=/etc/v2ray/config.json
