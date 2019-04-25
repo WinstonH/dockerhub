@@ -10,7 +10,7 @@ RUN apk upgrade --no-cache \
 # 导入edge最新源
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 # 安装桌面环境并添加用户alpine
-RUN apk --update --no-cache add x11vnc xvfb xrdp xauth alpine-desktop xfce4 ttf-freefont supervisor sudo openssl openssh dbus bash \
+RUN apk --update --no-cache add x11vnc xvfb xrdp xauth alpine-desktop firefox-esr xfce4 ttf-freefont wqy-zenhei supervisor sudo openssl openssh dbus bash \
 && addgroup alpine \
 && adduser  -G alpine -s /bin/sh -D alpine \
 && echo "alpine:alpine" | /usr/sbin/chpasswd \
