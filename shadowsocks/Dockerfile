@@ -1,46 +1,16 @@
-FROM alpine
+FROM alpine:edge
 
-#GIT
-ENV SS_GIT_PATH="https://github.com/shadowsocks/shadowsocks-libev" \
-    OBFS_GIT_PATH="https://github.com/shadowsocks/simple-obfs" 
-
-#Download applications
-RUN apk --update add --no-cache wget ca-certificates libcrypto1.1 libev libsodium mbedtls pcre c-ares \
-    && apk add --no-cache --virtual TMP wget \
-                                        git \
-                                        autoconf \
-                                        automake \
-                                        make \
-                                        build-base \
-                                        zlib-dev \
-                                        gettext-dev \
-                                        asciidoc \
-                                        xmlto \
-                                        libpcre32 \
-                                        libev-dev \
-                                        libsodium-dev \
-                                        libtool \
-                                        linux-headers \
-                                        mbedtls-dev \
-                                        openssl-dev \
-                                        pcre-dev \
-                                        c-ares-dev \
-                                        g++ \
-                                        gcc \
-#Compile Shadowsocks + plugin
-&& cd /tmp \
-&& git clone ${SS_GIT_PATH} \
-&& cd ${SS_GIT_PATH##*/} \
-&& git submodule update --init --recursive \
-&& ./autogen.sh \
-&& ./configure --prefix=/usr && make \
-&& make install \
+# Download applications
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
+&& apk --update add --no-cache wget shadowsocks-libev \
+# Get plugin
 && cd /tmp \
 && plugin_version=$(wget -O - https://api.github.com/repos/shadowsocks/v2ray-plugin/releases/latest | grep tag_name | awk  -F '"' '{print $4}') \
 && wget https://github.com/shadowsocks/v2ray-plugin/releases/download/$plugin_version/v2ray-plugin-linux-amd64-$plugin_version.tar.gz \
 && tar -xzvf v2ray-plugin-linux-amd64-*.tar.gz \
 && mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin \
-&& apk del TMP \
+# Clean
+&& apk del wget \
 && rm -rf /tmp/* \
 && rm -rf /var/cache/apk/*
 
