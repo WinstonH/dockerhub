@@ -9,5 +9,5 @@
 使用kcp协议的v2ray
 - http（待更新）
 底层传输协议使用HTTP/2.0
-- heroku（已移除） \
-可用于heroku平台，支持tls加密
+- heroku \
+可用于heroku平台，支持tls加密,见v2ray-heroku仓库

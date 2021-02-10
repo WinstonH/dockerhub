@@ -5,5 +5,3 @@
 1. ssh://ip:22
 2. vnc://ip:5900
 3. rdp://ip:3389
-- Vagex挂机优化脚本 \
-Dockerfile中注释得很清晰了

@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:latest
 MAINTAINER Winston H.
 # 设置中国时区
 ENV TZ 'Asia/Shanghai'
@@ -10,9 +10,10 @@ RUN apk upgrade --no-cache \
 # 导入edge最新源
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 # 安装桌面环境并添加用户alpine
-RUN apk --update --no-cache add x11vnc xvfb xrdp xauth alpine-desktop firefox-esr xfce4 ttf-freefont wqy-zenhei supervisor sudo openssl openssh dbus bash \
+RUN apk --update --no-cache add abiword audacious busybox claws-mail dhcpcd dhcpcd-ui eudev evince gnumeric lxdm ristretto sudo xf86-input-keyboard xf86-input-mouse xf86-video-vesa xfce4 xorg-server xscreensaver \
+wget curl git x11vnc xvfb xrdp xauth firefox-esr ttf-freefont wqy-zenhei supervisor sudo openssl openssh dbus bash \
 && addgroup alpine \
-&& adduser  -G alpine -s /bin/sh -D alpine \
+&& adduser -G alpine -s /bin/sh -D alpine \
 && echo "alpine:alpine" | /usr/sbin/chpasswd \
 && echo "alpine    ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
 && rm -rf /tmp/* /var/cache/apk/*
